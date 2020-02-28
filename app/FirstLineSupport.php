@@ -2,21 +2,17 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class FirstLineSupport extends Model
 {
-    use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password'
+        'id', 'bug_id', 'firstLineSupport_id', 'approval', 'reason'
     ];
 
     /**
@@ -24,7 +20,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $dates = ['email_verified_at', 'created_at', 'updated_at'];
+    protected $dates = ['created_at', 'updated_at'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -32,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token'
+        //
     ];
 
     /**
@@ -41,6 +37,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime'
+        'approval' => 'boolean'
     ];
+
+    /**
+     * Get the Bug for the FirstLineSupport.
+     */
+    public function bug()
+    {
+        return $this->belongsTo(\App\Bug::class);
+    }
+
 }
