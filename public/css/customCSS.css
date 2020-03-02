@@ -1,6 +1,16 @@
-#custom_css_content_styles {
+.custom_css_content_styles {
     margin-top: 1.5%;
 }
-.custom-button-center{
+
+.custom-button-center {
     text-align: center;
+}
+
+.custom-navigation-color {
+    color: white;
+}
+
+.custom-css-bgColor {
+
+    background-color: rgb(197, 197, 197);
 }
