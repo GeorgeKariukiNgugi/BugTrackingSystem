@@ -10,3 +10,6 @@
 
     background-color: rgb(197, 197, 197);
 }
+::placeholder {
+    color: red;
+  }
