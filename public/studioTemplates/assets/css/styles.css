@@ -7,3 +7,7 @@
   text-align:center;
 }
 
+#custom-round-button {
+  border-radius:45%;
+}
+

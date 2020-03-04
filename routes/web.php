@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/reportBug','ReportBug\reportBug@reportBug');
+
+//! this route is used to post the bug report
+Route::post('/postingBug','ReportBug\reportBug@postingBugReport');
+
