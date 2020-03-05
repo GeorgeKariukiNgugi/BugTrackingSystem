@@ -17,6 +17,8 @@ class ReportBug extends Controller
 
         } else {
             # code...
+            // return view('ReportBug.reportBug');
+            // return "Reporting the bug.";
             return view('ReportBug.reportBug');
         }
         
@@ -26,11 +28,11 @@ class ReportBug extends Controller
 
     public function postingBugReport(Request $request){
 
-        $validator = Validator::make( $request->all(),[
-            //! this is the area where our validatio rules will be. 
+        // $validator = Validator::make( $request->all(),[
+        //     //! this is the area where our validatio rules will be. 
 
-        ]);
+        // ]);
 
-        return "This is the posting of data.";
+        return $request;
     }
 }

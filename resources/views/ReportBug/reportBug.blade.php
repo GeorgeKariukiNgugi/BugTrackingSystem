@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -42,10 +41,13 @@
         <!-- Theme style -->
         <link rel="stylesheet" href="AdminLTE-master/dist/css/adminlte.min.css">
 
+        <link rel="stylesheet" href="AdminLTE-master/plugins/summernote/summernote-bs4.css">
+
 
     </head>
 
 <body style="background-color:#C5C5C5">
+  {{-- {{"This is the sample."}} --}}
     <div style="margin-bottom:1.2%;margin-top:0%;background-color:#4D04C5;">
         <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color:#6367E3;color:rgb(255,255,255);">
             <div class="container"><a class="navbar-brand" href="/">{{ config('app.name', 'Laravel') }}</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -184,52 +186,87 @@
 
     {{-- THIS SECTION OF HE CODE IS USED TO ADD THE DATA THAT IS GOUNG TO E DISPLAYED ON THE FORM. --}}
 
+    
     <div class="container">
         <div class=" row">
+
             <div class="col-md-12 offset-md-0 ">
-                        
-                        <section class="td-form">
-                          <div class="row td-form-wrapper" style="background-color:#4D04C5;">
-                              <div class="col td-glass">
-                                  <form method="POST" action="{{"/postingBug"}}" lass="td-form-wrapper" style="background-color:rgba(71,90,104,0.47);">
-                                    @csrf  
-                                    <h1 class="text-center">Bug Report Form.</h1>
-                                      <div class="form-group">
-                                          <div class="col-md-12"><label for="name" style="font-size:17px;"><strong>Application Bug Was Noticed: &nbsp;</strong></label>
-                                              <div class="d-flex">                                                                                                 
-                                                  <select class="form-control " required>
-                                                    <option data-select2-id="3">Application 1</option>
-                                                    <option data-select2-id="37">Application 2</option>
-                                                    <option data-select2-id="38">Application 3</option>
-                                                    <option data-select2-id="39">Application 4</option>
-                                                  </select>                                                                 
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="form-group">
-                                          <div class="col-md-12"><label for="email" style="font-size:17px;"><strong>Date Bug Was Noticed:&nbsp;</strong></label>
-                                              <div class="d-flex">                                                 
-                                                <input class="form-control" type="date" requ>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="form-group">
-                                          <div class="col-md-12"><label for="message" style="font-size:17px;"><strong>Bug Descrition:&nbsp;</strong></label>
-                                              <div class="d-flex td-input-container"><i class="icon ion-android-create align-self-center"></i><textarea class="form-control" rows="6" cols="50" name="message" placeholder="Add meaningful message here"></textarea></div>
-                                          </div>
-                                      </div>
-                                      <div class="form-group">
-                                          <div class="col-md-12"><label for="message" style="font-size:17px;"><strong>Expected Behaviour:</strong></label>
-                                              <div class="d-flex td-input-container"><i class="icon ion-android-create align-self-center"></i><textarea class="form-control" rows="6" cols="50" name="message" placeholder="Add meaningful message here"></textarea></div>
-                                          </div>
-                                      </div>
-                                      <div class="form-group">
-                                          <div class="col-md-12"><button class="btn btn-dark float-right" type="submit"><strong>Send Bug For Fixing</strong></button></div>
-                                      </div>
-                                  </form>
-                              </div>
-                          </div>
-                      </section>
+
+              <div class="card card-info">
+                <div class="card-header text-center">
+                  <h3 class="card-title" style="text-align:center;" > <b>Kindly Add the Description of the Bug.</b></h3>                  
+                </div>
+                <div class="card-body"> 
+
+                  <ol style="color:blue;">
+                    <small><i class="fa fa-sticky-note"></i> N.B.</small>
+                    <li>
+                      <small><b>Adding Images in the descrition of the bug and also in the Expected behaviour of the appliaction are highly appreciated.</b></small>
+                    </li>
+                    <li>
+                      <small><b> Fields with <i style="color:red;" class="fa fa-asterisk"></i> are required.</b></small>
+                    </li>
+                  </ol>
+                    
+                  <form action="/postingBug" method="POST">
+                    @csrf               
+                  <div class="form-group" data-select2-id="29">
+                    <label>Application Bug Was Noticed In: <i style="color:red;" class="fa fa-asterisk"></i></label>
+                    <select required name="application" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">                      
+                      <option data-select2-id="37" value="app_one">Application One</option>
+                      <option data-select2-id="38" value="app_two">Application Two</option>
+                      <option data-select2-id="39" value="app_three">Application Three</option>
+                      <option data-select2-id="40" value="app_four">Application Four</option>                     
+                    </select>
+                    {{-- <span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-zjlh-container"><span class="select2-selection__rendered" id="select2-zjlh-container" role="textbox" aria-readonly="true" title="California">California</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> --}}
+                  </div>
+
+                   {{-- This is the date input field. --}}
+                   <div class="form-group">
+                    <label>Date Bug Was Noticed: <i style="color:red;" class="fa fa-asterisk"></i></label>
+  
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                      </div>
+                      <input required type="date" name="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" im-insert="false">
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+
+                  <div class="form-group" data-select2-id="29">
+                    <label>The Bug Description. <i style="color:red;" class="fa fa-asterisk"></i> <small style="color:blue;"> <b>Images Can Be Added To The Description</b></small></label>
+                    <textarea required class="textarea" placeholder="Place some text here" name="bug" rows="60"
+                    style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    {{-- <span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-zjlh-container"><span class="select2-selection__rendered" id="select2-zjlh-container" role="textbox" aria-readonly="true" title="California">California</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> --}}
+                  </div> 
+                  
+                  {{-- This is the description of how the applicatio is supposed to work without the bug. --}}
+
+                  <div class="form-group" data-select2-id="29">
+                    <label>Expected Behaviour of the application. <i style="color:red;" class="fa fa-asterisk"></i> <small style="color:blue;"> <b>Images Can Be Added To The Description</b></small></label>
+                    <textarea required class="textarea" name="expectedBehaviour" placeholder="Place some text here" name="post" rows="60"
+                    style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    {{-- <span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-zjlh-container"><span class="select2-selection__rendered" id="select2-zjlh-container" role="textbox" aria-readonly="true" title="California">California</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> --}}
+                  </div>  
+
+                  <div class="row">
+                    <div class="col-md-8 offset-md-2" style="text-align:center;">
+                        <div role="group" class="btn-group">
+                          <button class="btn btn-warning btn-lg" type="reset"><i class="fa fa-refresh"></i><strong>CLEAR FIELDS.</strong><br /></button>
+                          <button class="btn btn-success btn-lg" type="submit"><i class="fa fa-gavel"></i><strong>REPORT BUG FOR FIXING.</strong><br /></button>
+                        </div>
+                    </div>
+                </div>
+
+
+                  </form>                                     
+                </div>
+                <!-- /.card-body -->
+              </div>
+
+      
+              
 
                     </div>
                     <!-- /.card-body -->
@@ -280,6 +317,17 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script src="AdminLTE-master/plugins/select2/js/select2.full.min.js"></script>
     
+    <script src="AdminLTE-master/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote({
+                                height: 350})
+    $('.textarea').attr('placeholder','This is the placeholder.');
+    
+  })
+</script>
+
    <script>
   $(function () {
     //Initialize Select2 Elements
