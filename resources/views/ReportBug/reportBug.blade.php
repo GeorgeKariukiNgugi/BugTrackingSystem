@@ -245,7 +245,7 @@
 
                   <div class="form-group" data-select2-id="29">
                     <label>Expected Behaviour of the application. <i style="color:red;" class="fa fa-asterisk"></i> <small style="color:blue;"> <b>Images Can Be Added To The Description</b></small></label>
-                    <textarea required class="textarea" name="expectedBehaviour" placeholder="Place some text here" name="post" rows="60"
+                    <textarea required class="textarea" name="expectedBehaviour" placeholder="Place some text here" rows="60"
                     style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                     {{-- <span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-zjlh-container"><span class="select2-selection__rendered" id="select2-zjlh-container" role="textbox" aria-readonly="true" title="California">California</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> --}}
                   </div>  
@@ -339,6 +339,7 @@
     })
     })
 </script>
+@include('sweetalert::alert')
 </body>
 
 </html>
