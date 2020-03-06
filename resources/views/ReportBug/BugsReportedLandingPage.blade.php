@@ -202,6 +202,9 @@
             </div>
             <div class="card-body">
                 <h3> <b>Bugs Reported</b> </h3>
+
+                
+
               <div class="d-flex">
                 
                 <div class="row"> 
@@ -211,11 +214,12 @@
                     @foreach ($bugs as $bug)
 
                     @php
+                    $status;
                         if($counter == 0){
                           $value = 2;
                         }
                         else{
-                          $value = (($counter*3)-1);
+                          $value = (($counter*3)+2);
                         }
                     @endphp
                     <div class="col-lg-6">            
@@ -230,12 +234,21 @@
 
                             @if ($bugsArray[$value-1] == 0)
                                 <b style="color:orangered;">Pending</b>
+                                @php
+                                    $status = 'Pending';
+                                @endphp
                             @elseif($bugsArray[$value-1] == 1)
 
                               @if ($bugsArray[$value] == 0)
                               <b style="color:orange;">Under Review</b>
+                              @php
+                              $status = 'Under Review';
+                          @endphp
                               @else
                               <b style="color:orange;">Fixing Process.</b>
+                              @php
+                              $status = 'Fixing Process.';
+                          @endphp
                               @endif                            
                             @endif
 
@@ -245,14 +258,84 @@
                             $date = date_format($dateToFormat, "D-d-F-Y");  
                           @endphp
                           <p class="card-text">Date Reported: {{$date}} </p>
-                          <a href="" class="btn btn-success">See More Details.</a>
+                          <a  class="btn btn-success" data-target="{{"#modal".$bug->id}}" data-toggle="modal" >See More Details.</a>
                         </div>
                       </div>
                     </div>
                     @php
                         $counter++;
                     @endphp
-                    
+                    <div role="dialog" tabindex="-1" class="modal fade" id="{{"modal".$bug->id}}">
+                      <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                              <div class="modal-header" style="background-color:rgb(249,64,64);">
+                                  <h4 class="text-center modal-title">Bug Reported.</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                              <div class="modal-body">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <h4 class="card-title">Status : {{$status}}</h4>
+                                          <br>
+                                          <div class="row">
+                                              <div class="col-md-4">
+                                                  <h5>Date Reported:</h5>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  <p>{{$date}}</p>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-4">
+                                                  <h5>Application :</h5>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  <p>{{$bug->software}}</p>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-4">
+                                                  <h5>Date Noticed :</h5>
+                                              </div>
+                                              <div class="col-md-8">
+                                                @php                                                
+                                                $dateToFormat = date_create($bugsArray[$value-2]->dateNoticed);
+                                                $date2 = date_format($dateToFormat, "D-d-F-Y");  
+                                              @endphp
+
+                                                  <p>{{$date2 }}</p>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-4">
+                                                  <h5>Reporter Full Names:</h5>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  <p>{{Auth::user()->name}}</p>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-4">
+                                                  <h5>Bug Description:</h5>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  {!! $bug->decription!!}
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-4">
+                                                  <h5>Expected Behaviour:</h5>
+                                              </div>
+                                              <div class="col-md-8">
+                                                {!! $bug->expectation!!}
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="modal-footer" style="background-color:rgb(249,64,64);"><button class="btn btn-danger active btn-sm" type="button" data-dismiss="modal">Close</button></div>
+                          </div>
+                      </div>
+                  </div>
                     @endforeach                    
                 </div>
                

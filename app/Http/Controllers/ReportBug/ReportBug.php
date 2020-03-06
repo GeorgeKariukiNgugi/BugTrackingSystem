@@ -37,15 +37,16 @@ class ReportBug extends Controller
 
             'application' => 'required',
             'date'=> 'required',
-            'bug'=>'required',
-            'expectedBehaviour'=>'required',            
+            'bug'=>'required|max:2048',
+            'expectedBehaviour'=>'required|max:2048',            
         ]);
 
         // ! If the validation fails, then the appliaction should throw an error that will be used to get the required data.
         if ($validator->fails()) {
-            return redirect('ReportBug.reportBug')
+            return      redirect('/reportBug')
                         ->withErrors($validator)
                         ->withInput();
+            // dd($validator);
         }
         else{
 
@@ -113,5 +114,10 @@ class ReportBug extends Controller
             return view('ReportBug.BugsReportedLandingPage',['bugsArray'=>$bugReportArray,'bugs'=>$bugs]);                     
 
         }        
+    }
+
+    public function singleBug($id){
+        // return $id."This is the single bug report.";
+        return view('singleBug');
     }
 }
