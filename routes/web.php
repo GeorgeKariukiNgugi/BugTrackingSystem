@@ -25,3 +25,5 @@ Route::get('/reportBug','ReportBug\reportBug@reportBug');
 //! this route is used to post the bug report
 Route::post('/postingBug','ReportBug\reportBug@postingBugReport');
 
+//! this route is used to get the details of a bug that has been reported.
+Route::get('/singleBugReport','');

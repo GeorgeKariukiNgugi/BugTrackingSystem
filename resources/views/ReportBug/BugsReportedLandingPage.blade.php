@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BugTracker</title>
-    <link rel="stylesheet" href="studioTemplates/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="studioTemplates/assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="studioTemplates/assets/css/Bold-BS4-Jumbotron-with-Particles-js.css">
-    <link rel="stylesheet" href="studioTemplates/assets/css/Bold-BS4-Jumbotron-with-Particles-js1.css">
-    <link rel="stylesheet" href="studioTemplates/assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="studioTemplates/assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="studioTemplates/assets/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="studioTemplates/assets/css/Projects-Horizontal.css">
-    <link rel="stylesheet" href="studioTemplates/assets/css/Social-Icons.css">
-    <link rel="stylesheet" href="studioTemplates/assets/css/styles.css">
-    {{-- <link rel="stylesheet" href="{{asset('AdminLTE-master/plugins/fontawesome-free/css/all.min.css')}}"> --}}
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('AdminLTE-master/dist/css/adminlte.min.css')}}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BugTracker</title>
+        <link rel="stylesheet" href="studioTemplates/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="studioTemplates/assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="studioTemplates/assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/Bold-BS4-Jumbotron-with-Particles-js.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/Bold-BS4-Jumbotron-with-Particles-js1.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/Footer-Dark.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/Login-Form-Dark.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/Navigation-Clean.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/Navigation-with-Search.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/Projects-Horizontal.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/Social-Icons.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/styles.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/TD-BS4-Simple-Contact-Form.css">
+        <link rel="stylesheet" href="studioTemplates/assets/css/TD-BS4-Simple-Contact-Form1.css">
+        <link href="{{ asset('css/customCSS.css') }}" rel="stylesheet">
 
-  <link href="{{ asset('css/customCSS.css') }}" rel="stylesheet">
-</head>
+          <!-- Font Awesome -->
+        <link rel="stylesheet" href="AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="AdminLTE-master/plugins/daterangepicker/daterangepicker.css">
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link rel="stylesheet" href="AdminLTE-master/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <!-- Bootstrap Color Picker -->
+        <link rel="stylesheet" href=AdminLTE-master./plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+        <!-- Tempusdominus Bbootstrap 4 -->
+        <link rel="stylesheet" href="AdminLTE-master/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+        <!-- Select2 -->
+        <link rel="stylesheet" href="AdminLTE-master/plugins/select2/css/select2.min.css">
+        <link rel="stylesheet" href="AdminLTE-master/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+        <!-- Bootstrap4 Duallistbox -->
+        <link rel="stylesheet" href="AdminLTE-master/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="AdminLTE-master/dist/css/adminlte.min.css">
 
-<body>
-    <div style="margin-bottom:1.2%;margin-top:0.5%;background-color:#4D04C5;">
+        <link rel="stylesheet" href="AdminLTE-master/plugins/summernote/summernote-bs4.css">
+
+
+    </head>
+
+<body style="background-color:#C5C5C5">
+  {{-- {{"This is the sample."}} --}}
+    <div style="margin-bottom:1.2%;margin-top:0%;background-color:#4D04C5;">
         <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color:#6367E3;color:rgb(255,255,255);">
             <div class="container"><a class="navbar-brand" href="/">{{ config('app.name', 'Laravel') }}</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse"id="navcol-1">
@@ -157,147 +182,85 @@
             </div>
         </nav>
     </div>
-    <div class="jumbotron jumbotron-fluid jumbotron-main" style="background-color:#4d04c5;">
-      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
-      <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
-    <div id="particles-js">
-	<canvas class="particles-js-canvas-el" width="1409" height="319" style="width: 100%; height: 100%;"></canvas>
-	</div>
-        <div class="container center-vertically-holder" style="margin-top:-20px;">
-            <div class="row center-vertically">
-                <div class="col-md-8 offset-sm-0 offset-md-2 text-center" style="margin-top:100px;margin-bottom:100px;">
-                    <h1 id="custom_jumbotron_heading_styles">Enterprise Appliaction Bug Reporter.<br><br></h1>
-                    <hr style="border-top:1px;color:rgba(255,255,255,0.9);width:60%;margin:0px;margin-top:-50px;margin-bottom:10px;margin-left:20%;">
-                    <p>Report any types of bugs that you may exprience in the course of using our various applications relased to the public or any comments that you ay have on mproving our softwares..</p>
-                    <p><a class="btn btn-primary btn-lg" role="button" href="/reportBug"><i class="fa fa-bug"></i>    Report Bug/ Leave Comment.&nbsp;</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="projects-horizontal" style="background-color:rgb(197,197,197);">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center">What Counts As A Bug??&nbsp;<br></h2>
-                <p class="text-center" style="color:rgb(0,0,0);">A <strong>software bug</strong> is an error, flaw or fault in a computer System&nbsp;or System that causes it to produce an incorrect or unexpected result, or to behave in unintended ways<br></p>
-            </div>
-            <div class="row projects">
-                <div class="col-sm-6 item">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="studioTemplates/assets/img/index.png"></a></div>
-                        <div class="col">
-                            <h3 class="name">Error handling Bugs<br></h3>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 item">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="studioTemplates/assets/img/index.png"></a></div>
-                        <div class="col">
-                            <h3 class="name">Syntactic errors<br></h3>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 item">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="studioTemplates/assets/img/pexels-photo-1329295.jpeg"></a></div>
-                        <div class="col">
-                            <h3 class="name">Boundary related errors<br></h3>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 item">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="studioTemplates/assets/img/pexels-photo-1329295.jpeg"></a></div>
-                        <div class="col">
-                            <h3 class="name">Incorrect calculations<br></h3>
-                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div></div>
 
-    <div class="content "  style="background-color:rgb(197,197,197);">
-        <div class="container ">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="card card-outline card-danger">
-            <div class="card-header">
-              <h5 class="m-0 text-center">How To Report A bug.</h5>
-            </div>
-            <div class="card-body">
-              <h6 class="card-title">Steps to reporting a bug successfilly.</h6>
-              <ol type="i" class="card-text">
-                <li>Step 1</li>
-                <li>Step 2</li>
-                <li>Step 3</li>
-                <li>Step 4</li>
-            </ol>
-  
-              <a class="btn btn-danger custom-button-center" data-target = "#sampleModal" data-toggle="modal" href="#"> <i class = "fa fa-video-camera"></i> Watch Video.</a>
-            </div>
-          </div>
-  
-        </div><!-- /.col-md-6 -->
+
+    {{-- THIS SECTION OF HE CODE IS USED TO ADD THE DATA THAT IS GOUNG TO E DISPLAYED ON THE FORM. --}}
+
+    {{-- The php code below is used to initialise  a variable. --}}
+
+    @php
+        $number = 0;
+    @endphp
+
+    <div style="margin-right:5%;margin-left:5%;">
         
-        <div class="col-lg-6">
-          <div class="card card-outline card-warning">
-            <div class="card-header">
-              <h5 class="m-0 text-center">How To Track Reported Bug End To End.</h5>
+        <div class="card">
+            <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                <h2 class="card-title"> <b>Bugs Reported</b></h2>
+              </div>
             </div>
             <div class="card-body">
-              <h6 class="card-title"> Steps to tracking a reported bug.</h6>
-              <ol type="i" class="card-text">
-                <li>Step 1</li>
-                <li>Step 2</li>
-                <li>Step 3</li>
-                <li>Step 4</li>
-            </ol>
-              <a class="btn btn-warning custom-button-center" data-target = "#sampleModal2" data-toggle="modal" href="#"> <i class = "fa fa-video-camera"> </i> Watch Video.</a>
+                <h3> <b>Bugs Reported</b> </h3>
+              <div class="d-flex">
+                
+                <div class="row"> 
+                  @php
+                      $counter = 0;
+                  @endphp                     
+                    @foreach ($bugs as $bug)
+
+                    @php
+                        if($counter == 0){
+                          $value = 2;
+                        }
+                        else{
+                          $value = (($counter*3)-1);
+                        }
+                    @endphp
+                    <div class="col-lg-6">            
+                      <div class="card card-primary card-outline">
+                        <div class="card-header">
+                          <h5 class="m-0">Application: <b style="color:blue;"></b>{{$bugsArray[$value-2]->software}}</h5>
+                        </div>
+                        <div class="card-body">
+                          <h6 class="card-title"> Status : 
+
+                            {{-- This section o the code is used to get the status of the application. --}}
+
+                            @if ($bugsArray[$value-1] == 0)
+                                <b style="color:orangered;">Pending</b>
+                            @elseif($bugsArray[$value-1] == 1)
+
+                              @if ($bugsArray[$value] == 0)
+                              <b style="color:orange;">Under Review</b>
+                              @else
+                              <b style="color:orange;">Fixing Process.</b>
+                              @endif                            
+                            @endif
+
+                          </h6>
+                          @php                                                
+                            $dateToFormat = date_create($bugsArray[$value-2]->created_at);
+                            $date = date_format($dateToFormat, "D-d-F-Y");  
+                          @endphp
+                          <p class="card-text">Date Reported: {{$date}} </p>
+                          <a href="" class="btn btn-success">See More Details.</a>
+                        </div>
+                      </div>
+                    </div>
+                    @php
+                        $counter++;
+                    @endphp
+                    
+                    @endforeach                    
+                </div>
+               
+              </div>
+              <!-- /.d-flex -->                           
             </div>
           </div>
-  
-        </div><!-- /.col-md-6 -->
-      </div>
-    </div><!-- /.container-fluid -->
-  </div>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-  </div>
-  <!-- ./wrapper -->
-        {{-- This section of the code is used to add the modals to the landing page.  --}} 
 
-    <div role="dialog" tabindex="-1" class="modal fade" id="sampleModal">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color:rgb(252,188,70)">
-                    <h4 class="modal-title" style="text-align:center;">How To Report A bug.</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body" style="background-color:rgb(244,196,108)"><video controls width="100%" height="100%" src="{{asset('videos/Record1.mp4')}}"></video></div>
-                <div class="modal-footer" style="background-color:rgb(252,188,70)"><button class="btn btn-danger active btn-sm" type="button" data-dismiss="modal">Close</button></div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div role="dialog" tabindex="-1" class="modal fade" id="sampleModal2">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color:rgb(249,64,64)">
-                    <h4 class="modal-title" style="text-align:center;">How To Report A bug.</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body" style="background-color:rgb(244,108,108)"><video controls width="100%" height="100%" src="{{asset('videos/Record1.mp4')}}"></video></div>
-                <div class="modal-footer" style="background-color:rgb(249,64,64)"><button class="btn btn-danger active btn-sm" type="button" data-dismiss="modal">Close</button></div>
-            </div>
-        </div>
     </div>
 
     <div class="footer-dark" style="background-color:rgb(77,4,197);">
@@ -331,9 +294,37 @@
         </footer>
     </div>
 
-    <script src="studioTemplates/assets/js/jquery.min.js"></script>
+    {{-- <script src="studioTemplates/assets/js/jquery.min.js"></script> --}}
+    <script src="AdminLTE-master/plugins/jquery/jquery.min.js"></script>
     <script src="studioTemplates/assets/bootstrap/js/bootstrap.min.js"></script>
+    
     <script src="studioTemplates/assets/js/Bold-BS4-Jumbotron-with-Particles-js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="AdminLTE-master/plugins/select2/js/select2.full.min.js"></script>
+    
+    <script src="AdminLTE-master/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote({
+                                height: 350})
+    $('.textarea').attr('placeholder','This is the placeholder.');
+    
+  })
+</script>
+
+   <script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+    })
+</script>
+@include('sweetalert::alert')
 </body>
 
 </html>

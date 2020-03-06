@@ -8,6 +8,8 @@ use Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Bug;
 use Alert;
+use App\FirstLineSupport;
+use App\LeadApproval;
 class ReportBug extends Controller
 {
     public function reportBug(){
@@ -61,10 +63,55 @@ class ReportBug extends Controller
             $bug->reporter_id = Auth::user()->id;
             $bug->save();
 
-            Alert::success('Success Title', 'Success Message');
-            return back();            
 
-        }
-        // return $request;
+            // ? STEP 2. Sending Email To The User.
+
+            // ! TO BE DONE.
+
+
+
+            // ? STEP 3 Returning User To Page With The Details On The Bug.
+
+            //* Adding The Array that will carry all the object that is the bug, the status and also the other status.
+
+            $bugs = Bug::where('reporter_id','=',Auth::user()->id)->get();
+
+            //* looping through the bugs for the particular user.
+            $bugReportArray = array();
+            foreach ($bugs as $bug) {
+                # code...
+                array_push($bugReportArray,$bug);
+                //* getting the ststus of approval by the FirstLine Support.
+
+                $bugApprovalByFirstLineSupport = FirstLineSupport::where('bug_id','=',$bug->id)->get();
+                if (count($bugApprovalByFirstLineSupport) == 0) {
+                    # code...
+                    array_push($bugReportArray,0);
+                } elseif(count($bugApprovalByFirstLineSupport) == 1) {
+                    # code...
+                    array_push($bugReportArray,$bugApprovalByFirstLineSupport);
+                }else{
+                    array_push($bugReportArray,'Kindly Contact Or Message The Customer Support, There is An Error That Occured On This Bug Report.');
+                }
+                
+                //* getting the ststus of approval by the LeadApproval.
+
+                $bugApprovalByLead = LeadApproval::where('bug_id','=',$bug->id)->get();
+                if (count($bugApprovalByLead) == 0) {
+                    # code...
+                    array_push($bugReportArray,0);
+                } elseif(count($bugApprovalByLead) == 1) {
+                    # code...
+                    array_push($bugReportArray,$bugApprovalByLead);
+                }else{
+                    array_push($bugReportArray,'Kindly Contact Or Message The Customer Support, There is An Error That Occured On This Bug Report.');
+                }
+            }
+            // dd($bugReportArray);
+
+            Alert::success('Congratulations <i style="color:green" class="fa fa-thumbs-up"></i>', 'Your Bug Has Successfully Been Reported.');
+            return view('ReportBug.BugsReportedLandingPage',['bugsArray'=>$bugReportArray,'bugs'=>$bugs]);                     
+
+        }        
     }
 }
