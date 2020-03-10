@@ -161,7 +161,7 @@
       <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
       <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
     <div id="particles-js">
-	<canvas class="particles-js-canvas-el" width="1409" height="319" style="width: 100%; height: 100%;"></canvas>
+	<canvas class="particles-js-canvas-el" width="1409" height="419" style="width: 100%; height: 100%;"></canvas>
 	</div>
         <div class="container center-vertically-holder" style="margin-top:-20px;">
             <div class="row center-vertically">

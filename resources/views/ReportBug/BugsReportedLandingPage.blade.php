@@ -192,7 +192,7 @@
         $number = 0;
     @endphp
 
-    <div style="margin-right:5%;margin-left:5%;">
+    <div class="container">
         
         <div class="card">
             <div class="card-header border-0">
@@ -274,8 +274,18 @@
                               <div class="modal-body">
                                   <div class="card">
                                       <div class="card-body">
-                                          <h4 class="card-title">Status : {{$status}}</h4>
-                                          <br>
+                                          {{-- <h4 class="card-title">Status : {{$status}}</h4> --}}
+
+                                          <div class="row">
+                                            <div class="col-md-4">
+                                                <h5>Status:</h5>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>{{$status}}</p>
+                                            </div>
+                                        </div>
+
+                                          {{-- <br> --}}
                                           <div class="row">
                                               <div class="col-md-4">
                                                   <h5>Date Reported:</h5>

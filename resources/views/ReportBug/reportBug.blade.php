@@ -224,11 +224,15 @@
                     @csrf               
                   <div class="form-group" data-select2-id="29">
                     <label>Application Bug Was Noticed In: <i style="color:red;" class="fa fa-asterisk"></i></label>
-                    <select required name="application" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">                      
-                      <option data-select2-id="37" value="Enterprise_Resource_Planning">Enterprise Resource Planning</option>
-                      <option data-select2-id="38" value="Document_Management_System">Document Management System</option>
-                      <option data-select2-id="39" value="Customer_Relationship_Management">Customer Relationship Management</option>
-                      <option data-select2-id="40" value="Gouvernanace_Risk_And_Compliance">Gouvernanace Risk And Compliance</option>                     
+                    <select required name="application" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+
+                          {{-- @for ($i = 0; $i < 100; $i++) --}}
+                          <option data-select2-id="37" value="Enterprise_Resource_Planning">Enterprise Resource Planning</option>
+                          <option data-select2-id="38" value="Document_Management_System">Document Management System</option>
+                          <option data-select2-id="39" value="Customer_Relationship_Management">Customer Relationship Management</option>
+                          <option data-select2-id="40" value="Gouvernanace_Risk_And_Compliance">Gouvernanace Risk And Compliance</option>
+                          {{-- @endfor                                            --}}
+
                     </select>
                     {{-- <span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-zjlh-container"><span class="select2-selection__rendered" id="select2-zjlh-container" role="textbox" aria-readonly="true" title="California">California</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> --}}
                   </div>

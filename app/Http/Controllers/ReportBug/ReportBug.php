@@ -37,8 +37,8 @@ class ReportBug extends Controller
 
             'application' => 'required',
             'date'=> 'required',
-            'bug'=>'required|max:2048',
-            'expectedBehaviour'=>'required|max:2048',            
+            'bug'=>'required',
+            'expectedBehaviour'=>'required',            
         ]);
 
         // ! If the validation fails, then the appliaction should throw an error that will be used to get the required data.
@@ -62,7 +62,15 @@ class ReportBug extends Controller
             $bug->dateNoticed = $request->date;
             $bug->software = $request->application;
             $bug->reporter_id = Auth::user()->id;
-            $bug->save();
+            try {
+                //code...
+                $bug->save();
+            } catch (\Throwable $th) {
+                //throw $th;
+                Alert::error('Error <i style="color:green" class="fa fa-thumbs-down"></i>', 'Kindly Note that the inage is larger than 4Mb.');
+                return back();
+            }
+            
 
 
             // ? STEP 2. Sending Email To The User.
