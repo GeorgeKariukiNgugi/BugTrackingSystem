@@ -27,3 +27,15 @@ Route::post('/postingBug','ReportBug\reportBug@postingBugReport');
 
 //! this route is used to get the details of a bug that has been reported.
 Route::get('/singleBugReport/{id}','ReportBug\reportBug@singleBug');
+
+//! this route is used to get the grouped rotes that will require authentication.
+
+Route::group(['middleware' => ['auth']], function() {
+
+    Route::resource('roles','RoleController');
+
+    Route::resource('users','UserController');
+
+    // Route::resource('products','ProductController');
+
+});

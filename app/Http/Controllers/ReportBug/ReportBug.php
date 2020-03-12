@@ -10,6 +10,7 @@ use App\Bug;
 use Alert;
 use App\FirstLineSupport;
 use App\LeadApproval;
+use Illuminate\Support\Facades\Mail;
 class ReportBug extends Controller
 {
     public function reportBug(){
@@ -75,7 +76,8 @@ class ReportBug extends Controller
 
             // ? STEP 2. Sending Email To The User.
 
-            // ! TO BE DONE.
+            // ! To do the emailing functionality later.
+            // Mail::to('ngugigeorgeorge@gmail.com')->send();
 
 
 
