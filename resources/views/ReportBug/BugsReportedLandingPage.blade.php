@@ -169,7 +169,7 @@
                                                             document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
-                                        <a class="dropdown-item" href="/sample" >
+                                        <a class="dropdown-item" href="/allReportedBugs" >
                                           {{"This Is Sample."}}
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -199,7 +199,7 @@
         <div class="card">
             <div class="card-header border-0">
               <div class="d-flex justify-content-between">
-                <h2 class="card-title"> <b>Bugs Reported</b></h2>
+                {{-- <h2 class="card-title"> <b>Bugs Reported</b></h2> --}}
               </div>
             </div>
             <div class="card-body">
@@ -207,7 +207,7 @@
 
                 
 
-              <div class="d-flex">
+              {{-- <div class="d-flex"> --}}
                 
                 <div class="row"> 
                   @php
@@ -351,7 +351,7 @@
                     @endforeach                    
                 </div>
                
-              </div>
+              {{-- </div> --}}
               <!-- /.d-flex -->                           
             </div>
           </div>

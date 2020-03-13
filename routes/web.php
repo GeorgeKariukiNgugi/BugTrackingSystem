@@ -10,9 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//! this route  id used to get the role of the user and redirect him appropriately to the respective page.
 Route::get('/', function () {
+
     return view('extending.landingPage');
+    // return auth()->user()->id ;;
+
+});
+
+Route::get('/supportLanding', function(){
+    return view('firstLineSupport.firstLineLanding');
 });
 
 Auth::routes();
@@ -28,14 +35,17 @@ Route::post('/postingBug','ReportBug\reportBug@postingBugReport');
 //! this route is used to get the details of a bug that has been reported.
 Route::get('/singleBugReport/{id}','ReportBug\reportBug@singleBug');
 
-//! this route is used to get the grouped rotes that will require authentication.
+//! th
+Route::get('/allReportedBugs','ReportBug\reportBug@allReportedBugsByClient');
 
-Route::group(['middleware' => ['auth']], function() {
+//this route is used to get the grouped rotes that will require authentication.
 
-    Route::resource('roles','RoleController');
+// Route::group(['middleware' => ['auth']], function() {
 
-    Route::resource('users','UserController');
+//     Route::resource('roles','RoleController');
 
-    // Route::resource('products','ProductController');
+//     Route::resource('users','UserController');
 
-});
+//     // Route::resource('products','ProductController');
+
+// });

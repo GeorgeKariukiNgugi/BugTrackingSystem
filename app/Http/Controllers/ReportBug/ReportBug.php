@@ -82,10 +82,14 @@ class ReportBug extends Controller
 
 
             // ? STEP 3 Returning User To Page With The Details On The Bug.
+            Alert::success('Congratulations <i style="color:green" class="fa fa-thumbs-up"></i>', 'Your Bug Has Successfully Been Reported.');
+            return $this->gettingAllBugsReportedByUser();
 
-            //* Adding The Array that will carry all the object that is the bug, the status and also the other status.
+        }        
+    }
 
-            $bugs = Bug::where('reporter_id','=',Auth::user()->id)->get();
+    public function gettingAllBugsReportedByUser(){
+        $bugs = Bug::where('reporter_id','=',Auth::user()->id)->get();
 
             //* looping through the bugs for the particular user.
             $bugReportArray = array();
@@ -118,16 +122,15 @@ class ReportBug extends Controller
                     array_push($bugReportArray,'Kindly Contact Or Message The Customer Support, There is An Error That Occured On This Bug Report.');
                 }
             }
-            // dd($bugReportArray);
 
-            Alert::success('Congratulations <i style="color:green" class="fa fa-thumbs-up"></i>', 'Your Bug Has Successfully Been Reported.');
-            return view('ReportBug.BugsReportedLandingPage',['bugsArray'=>$bugReportArray,'bugs'=>$bugs]);                     
-
-        }        
+            return view('ReportBug.BugsReportedLandingPage',['bugsArray'=>$bugReportArray,'bugs'=>$bugs]);    
     }
+    //! the function below is used to get all the bugs that the user has reported and their status. 
 
-    public function singleBug($id){
-        // return $id."This is the single bug report.";
-        return view('singleBug');
+    public function allReportedBugsByClient(){
+
+        // return "This is the bugs Reported by a User.";
+        return $this->gettingAllBugsReportedByUser();
+
     }
 }

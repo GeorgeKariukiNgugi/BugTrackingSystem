@@ -170,7 +170,7 @@
                                             {{ __('Logout') }}
                                         </a>
                                         
-                                        <a class="dropdown-item" href="/sample" >
+                                        <a class="dropdown-item" href="/allReportedBugs" >
                                           {{"This Is Sample."}}
                                         </a>
 
