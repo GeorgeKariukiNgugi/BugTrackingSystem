@@ -1,13 +1,22 @@
 @extends('extending.firstLineExtending') 
 
+@section('charts')
+
+
+@endsection
+
 @section('firstLineHeader')
 <h3 style="text-align:center;font-family:'Times New Roman', Times, serif">First Line Support DashBoard.</h3>
 @endsection
 
 @section('firstLineSection') 
 
+@php
+    // dd($untrackedBugs);
+@endphp
 {{-- This is the new section of the appliaction landing for the frst line support. --}}
-<h4 style="font-family:'Times New Roman', Times, serif;text-align:center;text-decoration:underline;" > GRAPHICAL REPRESENTATION OF THE BUGS REPORTED.</h4>
+{{-- {!!$usersChart->container()!!} --}}
+<h4 style="font-family:'Times New Roman', Times, serif;text-align:center;text-decoration:underline;" > GRAPHICAL REPRESENTATION OF THE untrackedBugS REPORTED.</h4>
 <br>
 <div class="row">    
   <div class="col-lg-6">
@@ -16,10 +25,13 @@
           <h5 class="m-0" style="font-family:'Times New Roman', Times, serif"> PROGRESS CHART. </h5>
         </div>
         <div class="card-body">
-          <h6 class="card-title">Special title treatment</h6>
-  
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          {{-- <h6 class="card-title">Special title treatment</h6> --}}
+          <h6 class="card-title">This Dounut Chart is used to show the bugs not verified per program.</h6>
+          
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-warning">Show Chart</a>
+          
+          
         </div>
       </div>
   </div>
@@ -30,17 +42,17 @@
           <h5 class="m-0" style="font-family:'Times New Roman', Times, serif"> UNPROCESSED BUGS PER PROGRAM. </h5>
         </div>
         <div class="card-body">
-          <h6 class="card-title">Special title treatment</h6>
+          <h6 class="card-title">This Dounut Chart is used to show the bugs not verified per program.</h6>
   
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-danger">Show Chart</a>
         </div>
       </div>
   </div>
 </div>
 
 <div>
-    <h4 style="font-family:'Times New Roman', Times, serif;text-align:center;text-decoration:underline;" > BUG TIMELINES. </h4>
+    <h4 style="font-family:'Times New Roman', Times, serif;text-align:center;text-decoration:underline;" > Bugs </h4>
     <br>
 </div>
 
@@ -50,107 +62,161 @@
 
         <div class="card card-success card-outline">
             <div class="card-header">
-              <h3 class="card-title">Bugs Whose Fixing Date I OverDue.</h3>
+              <h3 class="card-title">Bugs Reported and No vErifiedor Fixing.</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
-                <thead>
-                <tr role="row">
-                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 50.95px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">N <sub>no</sub></th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 262.4px;" aria-label="Browser: activate to sort column ascending">Tracking Number.</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 244.667px;" aria-label="Platform(s): activate to sort column ascending">Appliaction.</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 169.133px;" aria-label="Engine version: activate to sort column ascending">Date Of Submittion.</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 121.25px;" aria-label="CSS grade: activate to sort column ascending">Planned Fixing Date.</th></tr>
-                </thead>
-                <tbody>
-                <tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Firefox 1.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Firefox 1.5</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Firefox 2.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Firefox 3.0</td>
-                  <td>Win 2k+ / OSX.3+</td>
-                  <td>1.9</td>
-                  <td>A</td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Camino 1.0</td>
-                  <td>OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Camino 1.5</td>
-                  <td>OSX.3+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Netscape 7.2</td>
-                  <td>Win 95+ / Mac OS 8.6-9.2</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Netscape Browser 8</td>
-                  <td>Win 98SE+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Netscape Navigator 9</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Mozilla 1.0</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1</td>
-                  <td>A</td>
-                </tr></tbody>
-                
-              </table></div></div>
-              </div>
+            
+              <div class="table-responsive">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>S <sub>no</sub></th>
+                            <th> Tracking Number</th>
+                            <th>  Software</th>
+                            <th>  Date Reported </th>
+                            <th> More Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @php
+                      $increment = 1;
+                  @endphp
+                  @foreach ($untrackedBugs as $untrackedBug)
+                      <tr>
+                        <td>
+                          {{$increment++}}
+                        </td>
+                        <td>
+                          {{'N/A'}}
+                        </td>
+                        <td>
+                          {{$untrackedBug->software}}
+                        </td>
+                        <td>
+                          @php                                                
+                            $dateToFormat = date_create($untrackedBug->created_at);
+                            $date = date_format($dateToFormat, "D-d-F-Y H:i:s");  
+                          @endphp
+                        {{$date}}
+                        </td>
+                        <td>
+                          <a href="#" data-target="{{"#modal".$untrackedBug->id}}" data-toggle="modal"> Click To View Details.</a>
+                        </td>
+                      </tr>                      
+                  @endforeach
+                    </tbody>
+                </table>
             </div>
-            <!-- /.card-body -->
+
+            </div>
           </div>
+             
+            <!-- /.card-body -->
+            @foreach ($untrackedBugs as $untrackedBug)
+            <div role="dialog" tabindex="-1" class="modal fade" id="{{"modal".$untrackedBug->id}}">
+              <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header" style="background-color:rgb(249,64,64);">
+                          <h4 class="text-center modal-title">untrackedBug Reported.</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                      <div class="modal-body">
+                          <div class="card">
+                              <div class="card-body">
+                                  {{-- <h4 class="card-title">Status : {{$status}}</h4> --}}
+
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                        <h5>Status:</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p>Pending</p>
+                                    </div>
+                                </div>
+
+                                  {{-- <br> --}}
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <h5>Date Reported:</h5>
+                                      </div>
+                                      <div class="col-md-8">
+                                          <p>{{$date}}</p>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <h5>Application :</h5>
+                                      </div>
+                                      <div class="col-md-8">
+                                          <p>{{$untrackedBug->software}}</p>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <h5>Date Noticed :</h5>
+                                      </div>
+                                      <div class="col-md-8">
+                                        @php                                                
+                                        $dateToFormat = date_create($untrackedBug->dateNoticed);
+                                        $date2 = date_format($dateToFormat, "D-d-F-Y H:i:s");  
+                                      @endphp
+
+                                          <p>{{$date2 }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <h5>Reporter Full Names:</h5>
+                                      </div>
+                                      <div class="col-md-8">
+                                          <p>{{Auth::user()->name}}</p>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <h5>untrackedBug Description:</h5>
+                                      </div>
+                                      <div class="col-md-8">
+                                          {!! $untrackedBug->decription!!}
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <h5>Expected Behaviour:</h5>
+                                      </div>
+                                      <div class="col-md-8">
+                                        {!! $untrackedBug->expectation!!}
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer" style="background-color:rgb(249,64,64);">
+                        <button class="btn btn-danger active btn-sm" type="button" data-dismiss="modal">Close</button></div>
+                  </div>
+              </div>
+          </div>                  
+            @endforeach          
   
     <div class="col-lg-6">
       <div class="card card-success card-outline">
           <div class="card-header">
-            <h5 class="m-0" style="font-family:'Times New Roman', Times, serif"> Bugs With Close Closing TimeLines. </h5>
+            <h5 class="m-0" style="font-family:'Times New Roman', Times, serif"> untrackedBugs With Close Closing TimeLines. </h5>
           </div>
           <div class="card-body">
             <h6 class="card-title">Special title treatment</h6>
     
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" class="btn btn-primary">Show Chart</a>
           </div>
         </div>
     </div>
   </div>
-
+</div>
 {{-- THIS SECTION OF THE CODE IS USED TO GET THE MESSAGING ECTION OF THE APPLIACION. --}}
 
 <div class="row">
-    <div class="col-lg-8 offset-lg-2">
+    <div class="col-lg-8 offset-lg-2 ">
         <div class="card direct-chat direct-chat-primary">
             <div class="card-header ui-sortable-handle" style="cursor: move;">
               <h3 class="card-title">Direct Chat</h3>

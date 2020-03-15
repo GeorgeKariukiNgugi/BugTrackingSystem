@@ -192,6 +192,10 @@
 
     
     <div class="container">
+
+      <hr>
+      <h2 style="text-align:center;font-family:'Times New Roman', Times, serif;">Report Bug Experenced By Filling In The Form Below. </h2>
+      <hr>
         <div class=" row">
 
             <div class="col-md-12 offset-md-0 ">

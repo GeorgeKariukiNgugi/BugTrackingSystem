@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+use App\Charts\firstLineSupportCharts;
+use App\Bug;
+use App\FirstLineSupport;
+use Session;
 class LoginController extends Controller
 {
     /*
@@ -35,8 +39,7 @@ class LoginController extends Controller
                     // ! the redirection based on the roles that the user has. 
 
             if (Auth::user()->id == 2) {
-                # code...
-                // return "This is the first line implementation of the application";
+                # code...                                
                 return redirect('/supportLanding');
 
             } else {

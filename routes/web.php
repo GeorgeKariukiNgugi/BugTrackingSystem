@@ -18,9 +18,7 @@ Route::get('/', function () {
 
 });
 
-Route::get('/supportLanding', function(){
-    return view('firstLineSupport.firstLineLanding');
-});
+Route::get('/supportLanding/','firstLineSupport\firstLineSupportController@firstLineSupportController');
 
 Auth::routes();
 

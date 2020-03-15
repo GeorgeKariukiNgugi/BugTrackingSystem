@@ -16,6 +16,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="AdminLTE-master/dist/css/adminlte.min.css"><!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
         rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+        {{-- <meta charset="utf-8"> --}}
+      
+        @if($usersChart)
+        {!! $usersChart->script() !!}
+        @endif
 </head>
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -178,6 +184,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             {{-- THIS SECTION OF THE CODE IS GOING TO BE USED AS THE TEMPLATE OF THE APPLICATION. --}} 
 
             @yield('firstLineSection')
+            @yield('name')
 
         </div><!-- /.container-fluid -->
       </div><!-- /.content -->
@@ -198,19 +205,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </div><!-- ./wrapper -->
   <!-- REQUIRED SCRIPTS -->
   <!-- jQuery -->
-  <script src="AdminLTE-master/plugins/jquery/jquery.min.js"></script> <!-- Bootstrap 4 -->
+  <script src="studioTemplates/assets/js/jquery.min.js"></script>
+   <!-- Bootstrap 4 -->
   
   <script src="AdminLTE-master/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> <!-- AdminLTE App -->
    
   <script src="AdminLTE-master/dist/js/adminlte.min.js"></script>
-  {{-- <script src="AdminLTE-master/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
+  <script src="AdminLTE-master/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="AdminLTE-master/plugins/datatables/jquery.dataTables.js"></script>
-<script src="AdminLTE-master/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
-<script>
+{{-- <script src="AdminLTE-master/plugins/datatables/jquery.dataTables.js"></script> --}}
+{{-- <script src="AdminLTE-master/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script> --}}
+
+
+@include('sweetalert::alert')
+@yield('charts')
+  
+    
+{{-- <script>
     $(function () {
       $("#example1").DataTable();
     });
-  </script>
+  </script> --}}
+  
 </body>
 </html>
