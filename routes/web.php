@@ -28,13 +28,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/reportBug','ReportBug\ReportBug@reportBug');
 
 //! this route is used to post the bug report
-Route::post('/postingBug','ReportBug\reportBug@postingBugReport');
+Route::post('/postingBug','ReportBug\ReportBug@postingBugReport');
 
 //! this route is used to get the details of a bug that has been reported.
-Route::get('/singleBugReport/{id}','ReportBug\reportBug@singleBug');
+Route::get('/singleBugReport/{id}','ReportBug\ReportBug@singleBug');
 
 //! th
-Route::get('/allReportedBugs','ReportBug\reportBug@allReportedBugsByClient');
+Route::get('/allReportedBugs','ReportBug\ReportBug@allReportedBugsByClient');
 
 //this route is used to get the grouped rotes that will require authentication.
 
