@@ -25,7 +25,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/reportBug','ReportBug\reportBug@reportBug');
+Route::get('/reportBug','ReportBug\reportBug@ReportBug');
 
 //! this route is used to post the bug report
 Route::post('/postingBug','ReportBug\reportBug@postingBugReport');
