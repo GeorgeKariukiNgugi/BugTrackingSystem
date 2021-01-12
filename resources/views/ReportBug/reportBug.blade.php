@@ -171,7 +171,7 @@
                                         </a>
                                         
                                         <a class="dropdown-item" href="/allReportedBugs" >
-                                          {{"This Is Sample."}}
+                                          {{"My Reported Bugs."}}
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

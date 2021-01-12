@@ -104,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
                 
                 <a class="dropdown-item" href="/allReportedBugs" >
-                  {{"This Is Sample."}}
+                  {{"My Reported Bugs."}}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
